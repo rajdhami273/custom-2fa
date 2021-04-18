@@ -1,0 +1,38 @@
+{
+  "name": "2fa-be",
+  "version": "1.0.0",
+  "description": "Trying to create custom 2fa",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "server": "node app",
+    "server:dev": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "2fa",
+    "security"
+  ],
+  "author": "Rajendra Dhami",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.5",
+    "email-validator": "^2.0.4",
+    "express-errorlog": "^1.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mapie": "^1.0.15",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.3",
+    "mongoose-delete": "^0.5.3",
+    "mongoose-sequence": "^5.2.2",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
+    "randomstring": "^1.1.5",
+    "request": "^2.88.2",
+    "thirty-two": "^1.0.2"
+  }
+}
