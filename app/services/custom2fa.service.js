@@ -21,7 +21,7 @@ const fn = {
     var hmac = crypto.createHmac("sha1", secret);
     console.log("hmac: ", hmac);
 
-    // Convering the counter into Bytes (required for giving to HMAC as message)
+    // Converting the counter into Bytes (required for giving to HMAC as message)
     var counterBytes = new Array(8).fill(0);
     for (var i = counterBytes.length - 1; i >= 0; i--) {
       counterBytes[i] = counter & 0xff;

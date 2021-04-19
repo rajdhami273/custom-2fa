@@ -56,6 +56,7 @@ module.exports = {
   },
 
   register: (req) => {
+    console.log(req.body);
     return filterObject(
       req.body,
       ["firstName", "lastName", "email", "password", "mobile"],
@@ -70,7 +71,10 @@ module.exports = {
         return Promise.all([
           doc,
           models.user.findOne({
-            email: new RegExp("^" + doc.email + "$", "i"),
+            $or: [
+              { email: new RegExp("^" + doc.email + "$", "i") },
+              { mobile: doc.mobile },
+            ],
           }),
         ]);
       }
@@ -79,7 +83,7 @@ module.exports = {
         if (user) {
           return Promise.reject({
             status: 403,
-            message: "User with email ID already exists",
+            message: "User with same email/mobile already exists",
           });
         }
         const { firstName, lastName, email, password, mobile } = doc;
@@ -90,7 +94,7 @@ module.exports = {
             email,
             password,
             mobile,
-            secret: bcryptjs.hashSync(password + mobile, 20),
+            secret: bcryptjs.hashSync(password + mobile, 10),
           });
           newUser.hashPassword();
           return newUser.save();

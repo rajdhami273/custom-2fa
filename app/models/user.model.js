@@ -35,8 +35,9 @@ module.exports = (connection) => {
       },
       secret: {
         type: String,
-        required: true,
-      }
+        default: "",
+        // required: true,
+      },
     },
     options: {
       timestamps: true,
@@ -145,7 +146,7 @@ module.exports = (connection) => {
             from: '"Custom2fa" <rajdhami273@gmail.com>', // sender address
             to: this.email, // list of receivers
             subject: "Forgot password", // Subject line
-            html: '' 
+            html: "",
           });
         });
       },
